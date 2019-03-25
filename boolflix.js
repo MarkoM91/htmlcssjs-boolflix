@@ -5,15 +5,28 @@ function addTitle(title, originalTitle, language, vote) {
     title: title,
     original_title: originalTitle,
     original_language: language,
-    vote_average: vote
+    vote_average: "<i>",
+    class: ".fa-star"
   }
 
+tempDate.vote_average = "<i>";
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
   var li = compiled(tempDate);
 
   var ulFilms = $(".films");
   ulFilms.append(li);
+}
+
+function genStarsRatings(vote) {
+
+
+  var starTotal = 5;
+
+  var starVote = vote * 5 / 10;
+
+
+  return starVote
 }
 
 function ajaxResultParser(data) {
@@ -25,6 +38,7 @@ function ajaxResultParser(data) {
       var originalTitle = res.original_title;
       var language = res.original_language;
       var vote = res.vote_average;
+      genStarsRatings(vote);
       addTitle(title, originalTitle, language, vote);
   }
 }
@@ -38,7 +52,7 @@ function ajaxTest() {
   var li = $("li");
   li.remove();
 
-console.log(content);
+
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
     language:"it-IT",
@@ -50,7 +64,7 @@ console.log(content);
     data: outData,
     method:"GET",
     success: function(data) {
-console.log(data);
+
         ajaxResultParser(data);
 
 

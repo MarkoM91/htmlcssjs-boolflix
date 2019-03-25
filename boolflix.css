@@ -37,3 +37,10 @@ h1 {
 
   display: none;
 }
+
+.fa-star {
+
+  display: block;
+  width: 80px;
+  height: 16px;
+}
