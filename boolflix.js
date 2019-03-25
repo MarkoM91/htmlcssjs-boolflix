@@ -27,7 +27,6 @@ function ajaxResultParser(data) {
       var vote = res.vote_average;
       addTitle(title, originalTitle, language, vote);
   }
-
 }
 
 
@@ -35,21 +34,11 @@ function ajaxTest() {
 
   var me = $(this);
   var content = me.val().toLowerCase();
+
   var li = $("li");
-  li.removeClass("hidden");
+  li.remove();
 
-  for (var i = 0; i < li.length; i++) {
-
-    var liLength = li.eq(i);
-    var liElem = li.eq(i).text().toLowerCase();
-
-      if (!liLength.includes(content)) {
-
-        liLength.addClass("hidden");
-      }
-
-  }
-
+console.log(content);
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
     language:"it-IT",
