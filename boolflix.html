@@ -6,7 +6,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script id="box-template" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8" type="text/javascript">
-     <li>{{title}} - {{pop}}</li>
+      <li>{{title}} - {{original_title}} - {{original_language}} - {{vote_average}}</li>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="boolflix.css">
@@ -14,13 +14,10 @@
     <title></title>
   </head>
   <body>
-  <div class="container">
-    <div class="wrapper">
-        <div class="input">
-            <input id="txt" type="text" name="" value="">
-            <input id="btn" type="button" name="" value="">
-        </div>
+    <h1>Boolflix</h1>
+    <div class="input">
+        <input id="txt" type="text" name="" value="">
     </div>
-  </div>
+    <ul class="films"></ul>
   </body>
 </html>
