@@ -65,6 +65,8 @@ function ajaxMovie(me) {
 
   var div = $("div.film-container");
   div.remove();
+  me.val("");
+
 
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
@@ -97,8 +99,9 @@ function ajaxTvSeries(me) {
 
   var contentSeries = me.val().toLowerCase();
 
-  var li = $("li");
-  li.remove();
+  var div = $("div.film-container");
+  div.remove();
+  me.val("");
 
   var outDataSeries = {
     api_key:"e99307154c6dfb0b4750f6603256716d",
