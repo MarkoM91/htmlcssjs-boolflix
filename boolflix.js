@@ -46,7 +46,7 @@ function ajaxTvSeriesResultParser(data) {
 
 function ajaxTest() {
 
-  var me = $(this);
+
   var content = me.val().toLowerCase();
 
   var li = $("li");
@@ -83,7 +83,7 @@ function ajaxTest() {
 
 function ajaxTvSeriesTest() {
 
-  var me = $(this);
+
   var contentSeries = me.val().toLowerCase();
 
   var li = $("li");
@@ -123,10 +123,11 @@ var inputTxt = $("input#txt");
 inputTxt.on({
 
   "keyup" : function() {
-
+var me = $(this);
     ajaxTest();
   },
   "keyup" : function() {
+    var me = $(this);
     ajaxTvSeriesTest();
   }
 });
