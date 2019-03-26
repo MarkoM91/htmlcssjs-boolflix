@@ -117,8 +117,12 @@ function init() {
   inputTxt.keyup(function() {
 
     var me = $(this);
-    ajaxMovie(me);
-    ajaxTvSeries(me);
+    if (event.which == 13) {
+
+      ajaxMovie(me);
+      ajaxTvSeries(me)
+    }
+
   });
 }
 
