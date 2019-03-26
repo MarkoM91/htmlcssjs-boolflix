@@ -6,6 +6,7 @@ function addTitle(title, originalTitle, language, vote) {
     original_title: originalTitle,
     original_language: language,
     vote_average: Math.floor(vote),
+    stars: "<i class='fas fa-star'></i>"
   }
 
   var template = $("#box-template").html();
