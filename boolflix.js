@@ -5,8 +5,19 @@ function addTitle(title, originalTitle, language, vote) {
     title: title,
     original_title: originalTitle,
     original_language: language,
-    vote_average: Math.floor(vote),
-    stars: "<i class='fas fa-star'></i>"
+    vote_average: Math.floor(vote)/2,
+    stars: ""              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
+  }
+
+  for (var i = 1; i <= 5; i++) { // devo mettere maggiore o uguale  altrimenti mi mangia una stella.
+
+     if (tempDate.vote_average >= i) {
+
+        tempDate.stars += "<i class='fas fa-star'></i>"; //  concateno ad ogni giro
+     } else {
+
+        tempDate.stars += "<i class='far fa-star'></i>";
+     }
   }
 
   var template = $("#box-template").html();
@@ -57,8 +68,7 @@ function ajaxMovie(me) {
     query: content
   }
 
-  console.log(outData.query);
-  $.ajax({
+    $.ajax({
 
     url:"https://api.themoviedb.org/3/search/movie",
     data: outData,
@@ -99,7 +109,6 @@ function ajaxTvSeries(me) {
     success: function(data) {
 
         ajaxTvSeriesResultParser(data);
-    console.log(data);
     },
     error: function(request, state, error) {
 
@@ -120,13 +129,11 @@ function init() {
     var me = $(this);
     if (event.which == 13) {
 
-      ajaxMovie(me);
-      ajaxTvSeries(me)
+        ajaxMovie(me);
+        ajaxTvSeries(me)
     }
 
   });
 }
-
-
 
 $(document).ready(init);

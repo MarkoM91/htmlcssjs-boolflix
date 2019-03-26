@@ -46,10 +46,22 @@ header {
   display: none;
 }
 
-.fa-star {
+i {
+
+  display: inline-block;
+}
+
+.fas.fa-star {
 
   display: block;
-  width: 80px;
+  width: 16px;
+  height: 16px;
+}
+
+.far.fa-star {
+
+  display: block;
+  width: 16px;
   height: 16px;
 }
 
@@ -57,4 +69,11 @@ li {
 
   border: 1px solid black;
   padding: 15px;
+  display: flex;
+  margin-right: 0 15px;
+}
+
+span {
+
+  display: flex;
 }
