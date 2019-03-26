@@ -7,10 +7,18 @@
   user-select: none;
 }
 
-h1 {
+header {
+
+  height: 100px;
 
   background: black;
   color: red;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
 }
 
 
@@ -19,7 +27,6 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 50px 20px 0;
 }
 
  #txt {

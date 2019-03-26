@@ -81,7 +81,7 @@ function ajaxTest() {
 
 
 
-function ajaxTvSeriesTest() {
+function ajaxTvSeriesTest(me) {
 
 
   var contentSeries = me.val().toLowerCase();
