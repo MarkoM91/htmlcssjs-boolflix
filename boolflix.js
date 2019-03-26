@@ -6,6 +6,7 @@ function addTitle(title, originalTitle, language, vote) {
     original_title: originalTitle,
     original_language: language,
     vote_average: Math.floor(vote),
+
   }
 
   var template = $("#box-template").html();
@@ -16,7 +17,7 @@ function addTitle(title, originalTitle, language, vote) {
   ulFilms.append(li);
 }
 
-function ajaxResultParser(data) {
+function ajaxMovieResultParser(data) {
 
     var ress = data.results
     for (var i = 0; i < ress.length; i++) {
@@ -43,14 +44,20 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 
-function ajaxTest(content) {
-console.log(content);
+function ajaxMovie(me) {
+
+  var content = me.val().toLowerCase();
+
+  var li = $("li");
+  li.remove();
+
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
     language:"it-IT",
     query: content
   }
-  console.log(query)
+
+  console.log(outData.query);
   $.ajax({
 
     url:"https://api.themoviedb.org/3/search/movie",
@@ -58,7 +65,7 @@ console.log(content);
     method:"GET",
     success: function(data) {
 
-        ajaxResultParser(data);
+        ajaxMovieResultParser(data);
     },
     error: function(request, state, error) {
 
@@ -71,46 +78,25 @@ console.log(content);
 }
 
 
-function searchClickMovie() {
 
-  var input = $("input#txt");
-  var content = input.val().toLowerCase();
+function ajaxTvSeries(me) {
 
-  var li = $("li");
-  li.remove();
-  console.log(content);
-  ajaxTest(content);
-}
-
-
-function searchClickTV() {
-
-  var input = $("input#txt");
-
-  var contentSeries = input.val().toLowerCase();
+  var contentSeries = me.val().toLowerCase();
 
   var li = $("li");
   li.remove();
-
-  ajaxTvSeriesTest(contentSeries);
-}
-
-
-function ajaxTvSeriesTest(contentSeries) {
 
   var outDataSeries = {
-
     api_key:"e99307154c6dfb0b4750f6603256716d",
     language:"it-IT",
     query: contentSeries
   }
-  $.ajax({
 
+  $.ajax({
     url:"https://api.themoviedb.org/3/search/tv",
     data: outDataSeries,
     method:"GET",
     success: function(data) {
-
         ajaxTvSeriesResultParser(data);
     console.log(data);
     },
@@ -127,17 +113,13 @@ function ajaxTvSeriesTest(contentSeries) {
 
 function init() {
 
-var inputTxt = $("#btn");
-inputTxt.on({
 
-  "click" : function() {
+var inputTxt = $("input#txt");
+inputTxt.keyup(function() {
 
-    searchClickMovie();
-  },
-  "click" : function() {
-
-    searchClickTV();
-  }
+  var me = $(this);
+  ajaxMovie(me);
+  ajaxTvSeries(me);
 });
 }
 
