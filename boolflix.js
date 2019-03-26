@@ -35,10 +35,10 @@ function ajaxTvSeriesResultParser(data) {
     var ressTv = data.results
     for (var i = 0; i < ressTv.length; i++) {
       var resTv = ressTv[i];
-      var titleTv = res.name;
-      var originalTitleTv = res.original_name;
-      var languageTv = res.original_language;
-      var voteTv = res.vote_average;
+      var titleTv = resTv.name;
+      var originalTitleTv = resTv.original_name;
+      var languageTv = resTv.original_language;
+      var voteTv = resTv.vote_average;
       addTitle(titleTv, originalTitleTv, languageTv, voteTv);
   }
 }
