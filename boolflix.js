@@ -6,7 +6,6 @@ function addTitle(title, originalTitle, language, vote) {
     original_title: originalTitle,
     original_language: language,
     vote_average: Math.floor(vote),
-
   }
 
   var template = $("#box-template").html();
@@ -44,14 +43,7 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 
-function ajaxTest(me) {
-
-
-  var content = me.val().toLowerCase();
-
-  var li = $("li");
-  li.remove();
-
+function ajaxTest(content) {
 
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
@@ -66,8 +58,6 @@ function ajaxTest(me) {
     success: function(data) {
 
         ajaxResultParser(data);
-
-
     },
     error: function(request, state, error) {
 
@@ -80,16 +70,35 @@ function ajaxTest(me) {
 }
 
 
+function searchClickMovie() {
 
-function ajaxTvSeriesTest(me) {
-
-
-  var contentSeries = me.val().toLowerCase();
+  var input = $("input#txt");
+  var content = input.val().toLowerCase();
 
   var li = $("li");
   li.remove();
 
+  ajaxTest(content);
+}
+
+
+function searchClickTV() {
+
+  var input = $("input#txt");
+
+  var contentSeries = input.val().toLowerCase();
+
+  var li = $("li");
+  li.remove();
+
+  ajaxTvSeriesTest(contentSeries);
+}
+
+
+function ajaxTvSeriesTest(contentSeries) {
+
   var outDataSeries = {
+
     api_key:"e99307154c6dfb0b4750f6603256716d",
     language:"it-IT",
     query: contentSeries
@@ -103,7 +112,6 @@ function ajaxTvSeriesTest(me) {
 
         ajaxTvSeriesResultParser(data);
     console.log(data);
-
     },
     error: function(request, state, error) {
 
@@ -118,17 +126,16 @@ function ajaxTvSeriesTest(me) {
 
 function init() {
 
-
-var inputTxt = $("input#btn");
+var inputTxt = $("input#txt");
 inputTxt.on({
 
   "click" : function() {
-  var me = $(this);
-    ajaxTest(me);
+
+    searchClickMovie();
   },
   "click" : function() {
-    var me = $(this);
-    ajaxTvSeriesTest(me);
+
+    searchClickTV()
   }
 });
 }
