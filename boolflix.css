@@ -27,9 +27,16 @@ header {
   flex-wrap: wrap;
 }
 
-.div img {
+.div.img {
 
-  height: 754px;
+  width: 154px;
+  height: 235px;
+}
+
+.div.img  img{
+
+  height: 100%;
+  width: 100%;
 }
 
 .input {
@@ -77,8 +84,8 @@ i {
 
 li {
 
-  padding: 15px;
   display: flex;
+  padding: 8px;
   margin-right: 0 15px;
   width: 100%;
 }
@@ -93,8 +100,11 @@ div.info {
   height: 230px;
 }
 
-.films-container {
+.film-container {
 
   display: block;
   border: 1px solid black;
+  width: 154px;
+  height: 465px;
+  margin: 10px
 }
