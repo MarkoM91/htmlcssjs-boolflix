@@ -1,4 +1,4 @@
-function addTitle(title, originalTitle, language, vote) {
+function addTitle(title, originalTitle, language, vote, poster) {
 
   var tempDate = {
 
@@ -6,12 +6,13 @@ function addTitle(title, originalTitle, language, vote) {
     original_title: originalTitle,
     original_language: language,
     vote_average: Math.floor(vote)/2,
-    stars: ""              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
+    stars: "",              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
+    img: poster
   }
-
+console.log(tempDate);
   for (var i = 1; i <= 5; i++) { // devo mettere maggiore o uguale  altrimenti mi mangia una stella.
 
-     if (tempDate.vote_average >= i) {
+     if (tempDate.vote_average >= i) { //
 
         tempDate.stars += "<i class='fas fa-star'></i>"; //  concateno ad ogni giro
      } else {
@@ -37,7 +38,8 @@ function ajaxMovieResultParser(data) {
       var originalTitle = res.original_title;
       var language = res.original_language;
       var vote = res.vote_average;
-      addTitle(title, originalTitle, language, vote);
+      var poster= 'https://image.tmdb.org/t/p/w500' + res.poster_path;
+      addTitle(title, originalTitle, language, vote, poster);
   }
 }
 
@@ -50,9 +52,11 @@ function ajaxTvSeriesResultParser(data) {
       var originalTitleTv = resTv.original_name;
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
-      addTitle(titleTv, originalTitleTv, languageTv, voteTv);
+      var posterTv = 'https://image.tmdb.org/t/p/w500' + resTv.poster_path;
+      addTitle(titleTv, originalTitleTv, languageTv, voteTv, posterTv);
   }
 }
+
 
 
 function ajaxMovie(me) {
@@ -119,6 +123,8 @@ function ajaxTvSeries(me) {
 
   });
 }
+
+
 
 
 function init() {

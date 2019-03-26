@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script id="box-template" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8" type="text/javascript">
       <li>{{title}} - {{original_title}} - {{original_language}} - {{vote_average}} - <span>{{{stars}}}</span></li>
+      <div class="img">
+         <img src="{{img}}" alt="">
+      </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="boolflix.css">
@@ -21,6 +24,6 @@
           <input id="btn" type="button" name="" value="">
       </div>
     </header>
-    <ul class="films"></ul>
+      <ul class="films"></ul>
   </body>
 </html>
