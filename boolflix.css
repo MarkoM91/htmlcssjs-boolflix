@@ -9,8 +9,8 @@
 
 h1 {
 
-  background: red;
-  color: white;
+  background: black;
+  color: red;
 }
 
 
@@ -43,4 +43,10 @@ h1 {
   display: block;
   width: 80px;
   height: 16px;
+}
+
+li {
+
+  border: 1px solid black;
+  padding: 15px;
 }

@@ -5,28 +5,16 @@ function addTitle(title, originalTitle, language, vote) {
     title: title,
     original_title: originalTitle,
     original_language: language,
-    vote_average: "<i>",
-    class: ".fa-star"
+    vote_average: Math.floor(vote),
+
   }
 
-tempDate.vote_average = "<i>";
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
   var li = compiled(tempDate);
 
   var ulFilms = $(".films");
   ulFilms.append(li);
-}
-
-function genStarsRatings(vote) {
-
-
-  var starTotal = 5;
-
-  var starVote = vote * 5 / 10;
-
-
-  return starVote
 }
 
 function ajaxResultParser(data) {
@@ -38,8 +26,20 @@ function ajaxResultParser(data) {
       var originalTitle = res.original_title;
       var language = res.original_language;
       var vote = res.vote_average;
-      genStarsRatings(vote);
       addTitle(title, originalTitle, language, vote);
+  }
+}
+
+function ajaxTvSeriesResultParser(data) {
+
+    var ressTv = data.results
+    for (var i = 0; i < ressTv.length; i++) {
+      var resTv = ressTv[i];
+      var titleTv = res.name;
+      var originalTitleTv = res.original_name;
+      var languageTv = res.original_language;
+      var voteTv = res.vote_average;
+      addTitle(titleTv, originalTitleTv, languageTv, voteTv);
   }
 }
 
@@ -80,11 +80,56 @@ function ajaxTest() {
 }
 
 
+
+function ajaxTvSeriesTest() {
+
+  var me = $(this);
+  var contentSeries = me.val().toLowerCase();
+
+  var li = $("li");
+  li.remove();
+
+  var outDataSeries = {
+    api_key:"e99307154c6dfb0b4750f6603256716d",
+    language:"it-IT",
+    query: contentSeries
+  }
+  $.ajax({
+
+    url:"https://api.themoviedb.org/3/search/tv",
+    data: outDataSeries,
+    method:"GET",
+    success: function(data) {
+
+        ajaxTvSeriesResultParser(data);
+    console.log(data);
+
+    },
+    error: function(request, state, error) {
+
+      console.log("request", request);
+      console.log("state", state);
+      console.log("error", error);
+    }
+
+  });
+}
+
+
 function init() {
 
 
 var inputTxt = $("input#txt");
-inputTxt.keyup(ajaxTest)
+inputTxt.on({
+
+  "keyup" : function() {
+
+    ajaxTest();
+  },
+  "keyup" : function() {
+    ajaxTvSeriesTest();
+  }
+});
 }
 
 
