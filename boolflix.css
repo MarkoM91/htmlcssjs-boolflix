@@ -25,6 +25,13 @@ header {
 
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.films > * {
+
+margin: auto;
 }
 
 .div.img {
@@ -86,6 +93,7 @@ li {
 
   display: flex;
   padding: 8px;
+
   margin-right: 0 15px;
   width: 100%;
 }
@@ -104,7 +112,9 @@ div.info {
 
   display: block;
   border: 1px solid black;
+  margin: 12px;
+
   width: 154px;
   height: 465px;
-  margin: 10px
+
 }
