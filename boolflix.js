@@ -123,12 +123,12 @@ var inputTxt = $("input#txt");
 inputTxt.on({
 
   "keyup" : function() {
-var me = $(this);
-    ajaxTest();
+  var me = $(this);
+    ajaxTest(me);
   },
   "keyup" : function() {
     var me = $(this);
-    ajaxTvSeriesTest();
+    ajaxTvSeriesTest(me);
   }
 });
 }
