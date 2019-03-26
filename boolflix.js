@@ -9,7 +9,7 @@ function addTitle(title, originalTitle, language, vote, poster) {
     stars: "",              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
     img: poster
   }
-console.log(tempDate);
+
   for (var i = 1; i <= 5; i++) { // devo mettere maggiore o uguale  altrimenti mi mangia una stella.
 
      if (tempDate.vote_average >= i) { //
