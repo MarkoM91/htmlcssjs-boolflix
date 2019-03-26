@@ -6,7 +6,6 @@ function addTitle(title, originalTitle, language, vote) {
     original_title: originalTitle,
     original_language: language,
     vote_average: Math.floor(vote),
-
   }
 
   var template = $("#box-template").html();
@@ -97,6 +96,7 @@ function ajaxTvSeries(me) {
     data: outDataSeries,
     method:"GET",
     success: function(data) {
+
         ajaxTvSeriesResultParser(data);
     console.log(data);
     },
@@ -113,14 +113,13 @@ function ajaxTvSeries(me) {
 
 function init() {
 
+  var inputTxt = $("input#txt");
+  inputTxt.keyup(function() {
 
-var inputTxt = $("input#txt");
-inputTxt.keyup(function() {
-
-  var me = $(this);
-  ajaxMovie(me);
-  ajaxTvSeries(me);
-});
+    var me = $(this);
+    ajaxMovie(me);
+    ajaxTvSeries(me);
+  });
 }
 
 
