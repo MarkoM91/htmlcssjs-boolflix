@@ -21,6 +21,15 @@ header {
   padding: 0 20px;
 }
 
+.films {
+
+  display: flex;
+}
+
+.div img {
+
+  height: 754px;
+}
 
 .input {
 
@@ -68,7 +77,7 @@ i {
 li {
 
   border: 1px solid black;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   margin-right: 0 15px;
 }
@@ -76,4 +85,9 @@ li {
 span {
 
   display: flex;
+}
+
+div.info {
+
+  height: 230px;
 }

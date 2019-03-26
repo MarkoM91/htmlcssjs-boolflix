@@ -6,10 +6,16 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script id="box-template" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8" type="text/javascript">
-      <li>{{title}} - {{original_title}} - {{original_language}} - {{vote_average}} - <span>{{{stars}}}</span></li>
-      <div class="img">
+    <div class="img">
          <img src="{{img}}" alt="">
-      </div>
+    </div>
+    <div class="info">
+         <li>{{title}}</li>
+         <li>{{original_title}}</li>
+         <li>{{original_language}}</li>
+         <li>{{vote_average}}</li>
+         <li><span>{{{stars}}}</span></li>
+    </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="boolflix.css">

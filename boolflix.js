@@ -38,7 +38,7 @@ function ajaxMovieResultParser(data) {
       var originalTitle = res.original_title;
       var language = res.original_language;
       var vote = res.vote_average;
-      var poster= 'https://image.tmdb.org/t/p/w500' + res.poster_path;
+      var poster= 'https://image.tmdb.org/t/p/w154' + res.poster_path;
       addTitle(title, originalTitle, language, vote, poster);
   }
 }
@@ -52,7 +52,7 @@ function ajaxTvSeriesResultParser(data) {
       var originalTitleTv = resTv.original_name;
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
-      var posterTv = 'https://image.tmdb.org/t/p/w500' + resTv.poster_path;
+      var posterTv = 'https://image.tmdb.org/t/p/w154' + resTv.poster_path;
       addTitle(titleTv, originalTitleTv, languageTv, voteTv, posterTv);
   }
 }
