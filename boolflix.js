@@ -44,12 +44,13 @@ function ajaxTvSeriesResultParser(data) {
 
 
 function ajaxTest(content) {
-
+console.log(content);
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
     language:"it-IT",
     query: content
   }
+  console.log(query)
   $.ajax({
 
     url:"https://api.themoviedb.org/3/search/movie",
@@ -77,7 +78,7 @@ function searchClickMovie() {
 
   var li = $("li");
   li.remove();
-
+  console.log(content);
   ajaxTest(content);
 }
 
@@ -126,7 +127,7 @@ function ajaxTvSeriesTest(contentSeries) {
 
 function init() {
 
-var inputTxt = $("input#txt");
+var inputTxt = $("#btn");
 inputTxt.on({
 
   "click" : function() {
@@ -135,7 +136,7 @@ inputTxt.on({
   },
   "click" : function() {
 
-    searchClickTV()
+    searchClickTV();
   }
 });
 }
