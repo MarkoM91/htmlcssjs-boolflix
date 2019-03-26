@@ -7,6 +7,12 @@
   user-select: none;
 }
 
+body {
+
+  background: rgb(32, 32, 32);
+  color: white;
+}
+
 header {
 
   height: 100px;
@@ -71,6 +77,8 @@ span {
 .fa-search {
 
   color: grey;
+  margin-right: 10px;
+
 }
 
  #txt {
@@ -81,16 +89,20 @@ span {
   border: 1px solid black;
   color: white;
   text-align: center;
+  padding-right: 10px;
+
 }
 
 .fa-bell {
 
   color: white;
+  padding-left: 10px;
 }
 
 .bell {
 
   position: relative;
+  .margin-left: 10px;
 }
 
 .red-square {
