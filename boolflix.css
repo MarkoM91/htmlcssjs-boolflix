@@ -24,6 +24,7 @@ header {
 .films {
 
   display: flex;
+  flex-wrap: wrap;
 }
 
 .div img {
@@ -90,4 +91,10 @@ span {
 div.info {
 
   height: 230px;
+}
+
+.films-container {
+
+  display: block;
+  border: 1px solid black;
 }

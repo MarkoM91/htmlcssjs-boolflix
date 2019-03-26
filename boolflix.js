@@ -63,8 +63,8 @@ function ajaxMovie(me) {
 
   var content = me.val().toLowerCase();
 
-  var li = $("li");
-  li.remove();
+  var div = $("div.film-container");
+  div.remove();
 
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
