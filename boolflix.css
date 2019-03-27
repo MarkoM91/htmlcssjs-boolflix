@@ -164,6 +164,7 @@ li {
 div.info {
 
   height: 230px;
+  display: none;
 }
 
 .film-container {
