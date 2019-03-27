@@ -51,7 +51,7 @@ span {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 50px;
+  margin-left: 150px;
 }
 
 
@@ -165,7 +165,6 @@ div.info {
 
   height: 513px;
   width: 342px;
-
 }
 
 .active {
