@@ -51,6 +51,7 @@ span {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  margin-left: 50px;
 }
 
 
