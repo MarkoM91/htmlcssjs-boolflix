@@ -145,20 +145,22 @@ function ajaxTvSeries(me) {
   });
 }
 
-function showInfo(me){
+function showInfo(){
 
-    me.addClass("hidden");
+
+
 
     var info = $(".info");
-    info.addClass("active");
+    info.toggleClass("active");
+
 }
 
 function hideInfo(me){
 
-    me.removeClass("active");
+    me.hide();
 
     var img = $(".img");
-    img.removeClass("hidden");
+    img.show();
 }
 
 
@@ -180,7 +182,7 @@ function init() {
 var img = $(".img");
   $(document).on("click" , ".img", function() {
      var me = $(this);
-      showInfo(me);
+      showInfo();
   });
 
 var info = $(".info");

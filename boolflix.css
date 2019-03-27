@@ -159,6 +159,10 @@ div.info {
   color: white;
   border: 1px solid white;
   display: none;
+  position: absolute;
+  top: 0;
+  left:0;
+
 }
 
 div.info.active {
@@ -184,4 +188,5 @@ div.info.active {
 
   height: 513px;
   width: 342px;
+  position: relative;
 }
