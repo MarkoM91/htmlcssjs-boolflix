@@ -178,8 +178,8 @@ div.info {
 
   display: block;
   border: 1px solid black;
-  margin: 100px;
+  margin: 50px 10px 10px 5px;
 
-  width: 154px;
-  height: 465px;
+  height: 513px;
+  width: 342px;
 }
