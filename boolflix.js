@@ -57,24 +57,13 @@ function ajaxMovieResultParser(data) {
       var title = res.title;
       var originalTitle = res.original_title;
       var filmId = res.id;
-      var cast = ajaxMovieCastParser(data);
+      var cast = ajaxMovieCast(filmId);
       var language = res.original_language;
       var vote = res.vote_average;
       var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
       addTitle(title, originalTitle, cast, language,  vote, poster);
    }
 
-}
-
-function ajaxMovieCastParser(data) {
-
-    var ress1 = data.results
-    for (var i = 0; i < ress1.length; i++) {
-      var res1 = ress1[i];
-
-   }
-   console.log(res1);
-return res1
 }
 
 function ajaxTvSeriesResultParser(data) {
@@ -85,22 +74,12 @@ function ajaxTvSeriesResultParser(data) {
       var titleTv = resTv.name;
       var originalTitleTv = resTv.original_name;
       var tvId = resTv.id;
-      var castTv = ajaxTvSeriesCastParser(data);
+      var castTv = ajaxTvCast(tvId);
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
       var posterTv = 'https://image.tmdb.org/t/p/w342' + resTv.poster_path;
       addTitle(titleTv, originalTitleTv, castTv, languageTv,  voteTv, posterTv);
-      console.log(tvId);
   }
-}
-function ajaxTvSeriesCastParser(data) {
-
-    var ressTv1 = data.results
-    for (var i = 0; i < ressTv1.length; i++) {
-      var resTv1 = ressTv1[i];
-    }
-    console.log(resTv1);
-    return resTv1;
 }
 
 
@@ -180,20 +159,19 @@ function ajaxMovieCast(id) {
     }
 
   $.ajax({
+    url:"https://api.themoviedb.org/3/movie/" + id + "/credits",
+    data: outDataMovieCast,
+    method:"GET",
+    success: function(data) {
 
-      url:"https://api.themoviedb.org/3/movie/" + id + "/credits",
-      data: outDataMovieCast,
-      method:"GET",
-      success: function(data) {
+        var movieCast = data.response;
+    },
+    error: function(request, state, error) {
 
-           ajaxMovieCastParser(data.response);
-      },
-      error: function(request, state, error) {
-
-        console.log("request", request);
-        console.log("state", state);
-        console.log("error", error);
-      }
+      console.log("request", request);
+      console.log("state", state);
+      console.log("error", error);
+    }
 
   });
 }
@@ -206,21 +184,20 @@ function ajaxTvCast(id) {
     }
 
   $.ajax({
+    url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
+    data: outDataTvCast,
+    method:"GET",
+    success: function(data) {
 
-      url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
-      data: outDataTvCast,
-      method:"GET",
-      success: function(data) {
+         var tvCast = data.response;
 
-           ajaxTvSeriesCastParser(data.response);
+    },
+    error: function(request, state, error) {
 
-      },
-      error: function(request, state, error) {
-
-        console.log("request", request);
-        console.log("state", state);
-        console.log("error", error);
-      }
+      console.log("request", request);
+      console.log("state", state);
+      console.log("error", error);
+    }
 
   });
 }
