@@ -146,10 +146,12 @@ function ajaxTvSeries(me) {
 }
 
 function showInfo(){
-    console.log("ok");
-    var info = $(".info");
-    info.toggleClass("active");
 
+    var img = $(".img");
+    img.toggleClass("hidden");
+
+    var info = $("li");
+    info.toggleClass("active");
 }
 
 

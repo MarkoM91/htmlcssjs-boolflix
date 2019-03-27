@@ -126,8 +126,6 @@ span {
   right: 3px;
 }
 
-
-
 .hidden {
 
   display: none;
@@ -159,6 +157,7 @@ li {
 
   margin-right: 0 15px;
   width: 100%;
+  display: none;
 }
 
 
@@ -166,7 +165,7 @@ div.info {
 
   height: 513px;
   width: 342px;
-  display: none;
+
 }
 
 .active {
@@ -183,5 +182,4 @@ div.info {
 
   width: 154px;
   height: 465px;
-
 }
