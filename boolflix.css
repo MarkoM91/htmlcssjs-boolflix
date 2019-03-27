@@ -164,8 +164,15 @@ li {
 
 div.info {
 
-  height: 230px;
+  height: 513px;
+  width: 342px;
   display: none;
+}
+
+.active {
+
+
+  display: block;
 }
 
 .film-container {
