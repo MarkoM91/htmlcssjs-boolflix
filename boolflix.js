@@ -158,7 +158,7 @@ function ajaxCast(id) {
     }
 
   $.ajax({
-    url:"https://api.themoviedb.org/3/search/tv",
+    url:"https://api.themoviedb.org/3/movie/" + id +"/credits?api_key=8b0cf308301e17a98d830746296be82f",
     data: outDataCast,
     method:"GET",
     success: function(data) {
