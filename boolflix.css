@@ -50,7 +50,7 @@ span {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 
@@ -171,7 +171,7 @@ div.info {
 
   display: block;
   border: 1px solid black;
-  margin: 12px;
+  margin: 100px;
 
   width: 154px;
   height: 465px;
