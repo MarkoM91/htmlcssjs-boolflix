@@ -190,3 +190,8 @@ div.info.active {
   width: 342px;
   position: relative;
 }
+
+li[display = none] {
+
+  display: none;
+}
