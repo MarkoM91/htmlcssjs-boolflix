@@ -1,10 +1,11 @@
-function addTitle(title, originalTitle, language, vote, poster) {
+function addTitle(title, originalTitle, language,  vote, poster) {
 
   var tempDate = {
 
     title: title,
     original_title: originalTitle,
     original_language: language,
+    //flag: getFlagImg(language),
     vote_average: Math.floor(vote)/2,
     stars: "",              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
     img: poster
@@ -29,6 +30,21 @@ function addTitle(title, originalTitle, language, vote, poster) {
   ulFilms.append(li);
 }
 
+//function getFlagImg(flag) {
+//
+//  var flagImg;
+//  switch(flag) {
+//    case "en":'<img src="it.svg" width="38px">';
+//    break;
+//    case "it":'<img src="us.svg" width="38px">';
+//    break;
+//
+//    default:
+//    flagImg = '<img src="" width="38px">';
+//  }
+//
+//}
+
 function ajaxMovieResultParser(data) {
 
     var ress = data.results
@@ -38,8 +54,8 @@ function ajaxMovieResultParser(data) {
       var originalTitle = res.original_title;
       var language = res.original_language;
       var vote = res.vote_average;
-      var poster= 'https://image.tmdb.org/t/p/w154' + res.poster_path;
-      addTitle(title, originalTitle, language, vote, poster);
+      var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
+      addTitle(title, originalTitle, language,  vote, poster);
   }
 }
 
@@ -52,8 +68,8 @@ function ajaxTvSeriesResultParser(data) {
       var originalTitleTv = resTv.original_name;
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
-      var posterTv = 'https://image.tmdb.org/t/p/w154' + resTv.poster_path;
-      addTitle(titleTv, originalTitleTv, languageTv, voteTv, posterTv);
+      var posterTv = 'https://image.tmdb.org/t/p/w342' + resTv.poster_path;
+      addTitle(titleTv, originalTitleTv, languageTv,  voteTv, posterTv);
   }
 }
 
@@ -65,7 +81,6 @@ function ajaxMovie(me) {
 
   var div = $("div.film-container");
   div.remove();
-  me.val("");
 
 
   var outData = {
@@ -135,9 +150,9 @@ function init() {
   var inputTxt = $("input#txt");
   inputTxt.keyup(function() {
 
-    var me = $(this);
-    if (event.which == 13) {
 
+    if (event.which == 13) {
+var me = $(this);
         ajaxMovie(me);
         ajaxTvSeries(me)
     }
