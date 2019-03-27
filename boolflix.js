@@ -149,7 +149,7 @@ function showInfo(me){
 
     me.addClass("hidden");
 
-    var info = $(".info li");
+    var info = $(".info");
     info.addClass("active");
 }
 
@@ -183,8 +183,8 @@ var img = $(".img");
       showInfo(me);
   });
 
-var info = $(".info li");
-  $(document).on("click" , ".info li", function() {
+var info = $(".info");
+  $(document).on("click" , ".info", function() {
      var me = $(this);
       hideInfo(me);
   });

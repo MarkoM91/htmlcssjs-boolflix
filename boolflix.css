@@ -150,16 +150,6 @@ i {
   height: 16px;
 }
 
-li {
-
-  display: flex;
-  padding: 8px;
-
-  margin-right: 0 15px;
-  width: 100%;
-  display: none;
-}
-
 
 div.info {
 
@@ -168,11 +158,22 @@ div.info {
   background: black;
   color: white;
   border: 1px solid white;
+  display: none;
 }
 
 .active {
 
 
+  display: block;
+}
+
+.info li {
+
+  display: flex;
+  padding: 8px;
+
+  margin-right: 0 15px;
+  width: 100%;
   display: block;
 }
 
