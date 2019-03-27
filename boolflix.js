@@ -5,7 +5,7 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
     title: title,
     original_title: originalTitle,
     id: id,
-    cast:,
+    cast: ajaxCast(id),
     original_language: language,
     flag: getFlagImg(language),
     vote_average: Math.floor(vote)/2,
