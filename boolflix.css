@@ -161,7 +161,7 @@ div.info {
   display: none;
 }
 
-.active {
+div.info.active {
 
 
   display: block;
@@ -174,7 +174,6 @@ div.info {
 
   margin-right: 0 15px;
   width: 100%;
-  display: block;
 }
 
 .film-container {
