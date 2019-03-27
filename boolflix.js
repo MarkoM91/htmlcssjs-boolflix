@@ -147,7 +147,7 @@ function ajaxTvSeries(me) {
 
 function showInfo(me){
 
-    me.toggleClass("hidden").siblings().removeClass("hidden");
+    me.toggleClass("hidden");
 
     var info = $(".info li")
     info.toggleClass("active");
