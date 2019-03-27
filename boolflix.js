@@ -178,14 +178,16 @@ function init() {
 
 var img = $(".img");
   $(document).on("click" , ".img", function() {
-     var me = $(this);
-      showInfo(me);
+
+        var me = $(this);
+        showInfo(me);
   });
 
 var info = $(".info");
   $(document).on("click" , ".info", function() {
-     var me = $(this);
-      hideInfo(me);
+
+        var me = $(this);
+        hideInfo(me);
   });
 }
 
