@@ -125,7 +125,7 @@ function ajaxTvSeries(me) {
 
   var div = $("div.film-container");
   div.remove();
-  me.val("");
+  
 
   var outDataSeries = {
     api_key:"e99307154c6dfb0b4750f6603256716d",
