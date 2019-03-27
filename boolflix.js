@@ -145,7 +145,7 @@ function ajaxTvSeries(me) {
   });
 }
 
-function showInfo(me){
+function showInfo(){
     console.log("ok");
     var info = $(".info");
     info.toggleClass("active");
@@ -158,9 +158,10 @@ function init() {
   var inputTxt = $("input#txt");
   inputTxt.keyup(function() {
 
+    var me = $(this);
 
     if (event.which == 13) {
-var me = $(this);
+
         ajaxMovie(me);
         ajaxTvSeries(me)
     }
