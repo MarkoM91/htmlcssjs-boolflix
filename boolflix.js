@@ -5,7 +5,7 @@ function addTitle(title, originalTitle, language,  vote, poster) {
     title: title,
     original_title: originalTitle,
     original_language: language,
-    //flag: getFlagImg(language),
+    flag: getFlagImg(language),
     vote_average: Math.floor(vote)/2,
     stars: "",              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
     img: poster
@@ -30,20 +30,23 @@ function addTitle(title, originalTitle, language,  vote, poster) {
   ulFilms.append(li);
 }
 
-//function getFlagImg(flag) {
-//
-//  var flagImg;
-//  switch(flag) {
-//    case "en":'<img src="it.svg" width="38px">';
-//    break;
-//    case "it":'<img src="us.svg" width="38px">';
-//    break;
-//
-//    default:
-//    flagImg = '<img src="" width="38px">';
-//  }
-//
-//}
+function getFlagImg(flag) {
+
+  var flagImg;
+  switch(flag) {
+
+    case "en":
+      flagImg = '<img src="img/it.svg" width="38px">';
+    break;
+    case "it":
+      flagImg = '<img src="img/us.svg" width="38px">';
+    break;
+
+    default:
+      flagImg = '<img src="" width="38px">';
+  }
+  return flagImg;
+}
 
 function ajaxMovieResultParser(data) {
 
@@ -163,7 +166,7 @@ var me = $(this);
     }
 
   });
-  
+
 var img = $(".img");
   $(document).on("click" , ".img", function() {
 
