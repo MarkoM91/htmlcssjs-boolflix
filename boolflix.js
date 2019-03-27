@@ -160,7 +160,7 @@ function ajaxMovieCast(id) {
 
   $.ajax({
     url:"https://api.themoviedb.org/3/movie/" + id + "/credits",
-    data: outDataCast,
+    data: outDataMovieCast,
     method:"GET",
     success: function(data) {
 
@@ -185,7 +185,7 @@ function ajaxTvCast(id) {
 
   $.ajax({
     url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
-    data: outDataCast,
+    data: outDataTvCast,
     method:"GET",
     success: function(data) {
 
