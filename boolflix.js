@@ -145,7 +145,17 @@ function ajaxTvSeries(me) {
   });
 }
 
+function hiddedBox() {
+
+  var info= $(".info");
+  info.hide();
+
+  var img = $(".img");
+  img.show();
+}
+
 function showInfo(me){
+
 
     me.hide();
 
@@ -179,6 +189,7 @@ function init() {
 var img = $(".img");
   $(document).on("click" , ".img", function() {
 
+        hiddedBox();
         var me = $(this);
         showInfo(me);
   });
