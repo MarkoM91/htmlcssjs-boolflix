@@ -57,13 +57,24 @@ function ajaxMovieResultParser(data) {
       var title = res.title;
       var originalTitle = res.original_title;
       var filmId = res.id;
-      var cast = ajaxMovieCast(filmId);
+      var cast = ajaxMovieCastParser(data);
       var language = res.original_language;
       var vote = res.vote_average;
       var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
       addTitle(title, originalTitle, cast, language,  vote, poster);
    }
 
+}
+
+function ajaxMovieCastParser(data) {
+
+    var ress1 = data.results
+    for (var i = 0; i < ress1.length; i++) {
+      var res1 = ress1[i];
+
+   }
+   console.log(res1);
+return res1
 }
 
 function ajaxTvSeriesResultParser(data) {
@@ -74,13 +85,22 @@ function ajaxTvSeriesResultParser(data) {
       var titleTv = resTv.name;
       var originalTitleTv = resTv.original_name;
       var tvId = resTv.id;
-      var castTv = ajaxTvCast(tvId);
+      var castTv = ajaxTvSeriesCastParser(data);
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
       var posterTv = 'https://image.tmdb.org/t/p/w342' + resTv.poster_path;
       addTitle(titleTv, originalTitleTv, castTv, languageTv,  voteTv, posterTv);
       console.log(tvId);
   }
+}
+function ajaxTvSeriesCastParser(data) {
+
+    var ressTv1 = data.results
+    for (var i = 0; i < ressTv1.length; i++) {
+      var resTv1 = ressTv1[i];
+    }
+    console.log(resTv1);
+    return resTv1;
 }
 
 
@@ -166,7 +186,7 @@ function ajaxMovieCast(id) {
       method:"GET",
       success: function(data) {
 
-           var movieCast = data.response;
+           ajaxMovieCastParser(data.response);
       },
       error: function(request, state, error) {
 
@@ -186,13 +206,13 @@ function ajaxTvCast(id) {
     }
 
   $.ajax({
-    
+
       url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
       data: outDataTvCast,
       method:"GET",
       success: function(data) {
 
-           var tvCast = data.response;
+           ajaxTvSeriesCastParser(data.response);
 
       },
       error: function(request, state, error) {
@@ -247,7 +267,7 @@ function init() {
   });
 
 var img = $(".img");
-  $(document).on("click" , ".img", function() {
+  $(document).on("mouseenter" , ".img", function() {
 
         hiddedBox();
         var me = $(this);
@@ -255,7 +275,7 @@ var img = $(".img");
   });
 
 var info = $(".info");
-  $(document).on("click" , ".info", function() {
+  $(document).on("mouseleave" , ".info", function() {
 
         var me = $(this);
         hideInfo(me);
