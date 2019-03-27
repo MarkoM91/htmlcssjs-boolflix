@@ -36,10 +36,10 @@ function getFlagImg(flag) {
   switch(flag) {
 
     case "en":
-      flagImg = '<img src="it.svg" width="38px" height="38px">';
+      flagImg = '<img src="us.svg" width="38px" height="38px">';
     break;
     case "it":
-      flagImg = '<img src="us.svg" width="38px" height="38px">';
+      flagImg = '<img src="it.svg" width="38px" height="38px">';
     break;
 
     default:
