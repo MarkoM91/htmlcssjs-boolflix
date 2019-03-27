@@ -150,6 +150,31 @@ function ajaxTvSeries(me) {
   });
 }
 
+function ajaxCast(id) {
+
+    var outDataCast = {
+
+    api_key:"e99307154c6dfb0b4750f6603256716d"
+    }
+
+  $.ajax({
+    url:"https://api.themoviedb.org/3/search/tv",
+    data: outDataCast,
+    method:"GET",
+    success: function(data) {
+
+        ajaxTvSeriesResultParser(data);
+    },
+    error: function(request, state, error) {
+
+      console.log("request", request);
+      console.log("state", state);
+      console.log("error", error);
+    }
+
+  });
+}
+
 function hiddedBox() {
 
   var info= $(".info");
