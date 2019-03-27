@@ -149,9 +149,7 @@ function showInfo(me){
 
     me.hide();
 
-
     me.siblings(".info").show();
-
 }
 
 function hideInfo(me){
