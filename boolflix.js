@@ -150,20 +150,46 @@ function ajaxTvSeries(me) {
   });
 }
 
-function ajaxCast(id) {
+function ajaxMovieCast(id) {
 
-    var outDataCast = {
+    var outDataMovieCast = {
+
+    api_key:"8b0cf308301e17a98d830746296be82f"
+    }
+
+  $.ajax({
+    url:"https://api.themoviedb.org/3/movie/" + id + "/credits",
+    data: outDataCast,
+    method:"GET",
+    success: function(data) {
+
+        var movieCast = data.response;
+    },
+    error: function(request, state, error) {
+
+      console.log("request", request);
+      console.log("state", state);
+      console.log("error", error);
+    }
+
+  });
+}
+
+function ajaxTvCast(id) {
+
+    var outDataTvCast = {
 
     api_key:"e99307154c6dfb0b4750f6603256716d"
     }
 
   $.ajax({
-    url:"https://api.themoviedb.org/3/movie/" + id +"/credits?api_key=8b0cf308301e17a98d830746296be82f",
+    url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
     data: outDataCast,
     method:"GET",
     success: function(data) {
 
-        ajaxTvSeriesResultParser(data);
+         var tvCast = data.response;
+
     },
     error: function(request, state, error) {
 
