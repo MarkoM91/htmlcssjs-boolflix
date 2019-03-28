@@ -90,15 +90,17 @@ function ajaxTvSeriesResultParser(data) {
   }
 }
 
-
-
-function ajaxMovie(me) {
+function searchMovie(me) {
 
   var content = me.val().toLowerCase();
 
   var div = $("div.film-container");
   div.remove();
 
+  ajaxMovie(content);
+}
+
+function ajaxMovie(content) {
 
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
@@ -125,17 +127,19 @@ function ajaxMovie(me) {
   });
 }
 
-
-
-function ajaxTvSeries(me) {
+function searchTv(me) {
 
   var contentSeries = me.val().toLowerCase();
 
   var div = $("div.film-container");
   div.remove();
 
+  ajaxTvSeries(contentSeries);
+}
 
-  var outDataSeries = {
+function ajaxTvSeries(contentSeries) {
+
+    var outDataSeries = {
     api_key:"e99307154c6dfb0b4750f6603256716d",
     language:"it-IT",
     query: contentSeries
@@ -245,8 +249,8 @@ function init() {
 
     if (event.which == 13) {
 
-        ajaxMovie(me);
-        ajaxTvSeries(me)
+        searchMovie(me);
+        searchTv(me)
     }
 
   });
