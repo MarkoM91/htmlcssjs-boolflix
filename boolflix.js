@@ -1,9 +1,10 @@
-function addTitle(title, originalTitle, cast, language,  vote, poster) {
+function addTitle(title, originalTitle, id, language,  vote, poster) {
 
   var tempDate = {
 
     title:"Title: " +  title,
     original_title:"Original Title: " +  originalTitle,
+    id: id,
     cast:"Cast: " +  cast,
     original_language: language,
     flag:"Language: " + " " +  getFlagImg(language),
@@ -65,11 +66,10 @@ function ajaxMovieResultParser(data) {
       var title = res.title;
       var originalTitle = res.original_title;
       var filmId = res.id;
-      var cast = ajaxMovieCast(filmId);
       var language = res.original_language;
       var vote = res.vote_average;
       var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
-      addTitle(title, originalTitle, cast, language,  vote, poster);
+      addTitle(title, originalTitle, filmId, language,  vote, poster);
    }
 
 }
@@ -82,11 +82,10 @@ function ajaxTvSeriesResultParser(data) {
       var titleTv = resTv.name;
       var originalTitleTv = resTv.original_name;
       var tvId = resTv.id;
-      var castTv = ajaxTvCast(tvId);
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
       var posterTv = 'https://image.tmdb.org/t/p/w342' + resTv.poster_path;
-      addTitle(titleTv, originalTitleTv, castTv, languageTv,  voteTv, posterTv);
+      addTitle(titleTv, originalTitleTv, tvId, languageTv,  voteTv, posterTv);
   }
 }
 
