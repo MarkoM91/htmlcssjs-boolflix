@@ -7,20 +7,9 @@ function addTitle(title, originalTitle, cast, language,  vote, poster) {
     cast: cast,
     original_language: language,
     flag: getFlagImg(language),
-    vote_average: Math.floor(vote)/2,
-    stars: "",              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
+    vote_average: vote,
+    stars: getStars(vote),              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
     img: poster
-  }
-
-  for (var i = 1; i <= 5; i++) { // devo mettere maggiore o uguale  altrimenti mi mangia una stella.
-
-     if (tempDate.vote_average >= i) { //
-
-        tempDate.stars += "<i class='fas fa-star'></i>"; //  concateno ad ogni giro
-     } else {
-
-        tempDate.stars += "<i class='far fa-star'></i>";
-     }
   }
 
   var template = $("#box-template").html();
@@ -29,6 +18,25 @@ function addTitle(title, originalTitle, cast, language,  vote, poster) {
 
   var ulFilms = $(".films");
   ulFilms.append(li);
+}
+
+function getStars(vote) {
+
+  var newVote = Math.floor(vote)/2;
+
+  var stars = "";
+
+  for (var i = 1; i <= 5; i++) { // devo mettere maggiore o uguale  altrimenti mi mangia una stella.
+
+     if (newVote >= i) { //
+
+        stars += "<i class='fas fa-star'></i>"; //  concateno ad ogni giro
+     } else {
+
+        stars += "<i class='far fa-star'></i>";
+     }
+  }
+  return stars;
 }
 
 function getFlagImg(flag) {
@@ -125,7 +133,7 @@ function ajaxTvSeries(me) {
 
   var div = $("div.film-container");
   div.remove();
-  
+
 
   var outDataSeries = {
     api_key:"e99307154c6dfb0b4750f6603256716d",
