@@ -2,13 +2,13 @@ function addTitle(title, originalTitle, cast, language,  vote, poster) {
 
   var tempDate = {
 
-    title: title,
-    original_title: originalTitle,
-    cast: cast,
+    title:"Title: " +  title,
+    original_title:"Original Title: " +  originalTitle,
+    cast:"Cast: " +  cast,
     original_language: language,
-    flag: getFlagImg(language),
+    flag:"Language: " + " " +  getFlagImg(language),
     vote_average: vote,
-    stars: getStars(vote),              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
+    stars:"Vote: " + " " + getStars(vote),              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
     img: poster
   }
 
@@ -238,7 +238,6 @@ function hideInfo(me){
     var img = $(".img");
     img.show();
 }
-
 
 function init() {
 

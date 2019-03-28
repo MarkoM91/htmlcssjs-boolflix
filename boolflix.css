@@ -195,3 +195,10 @@ li[display = none] {
 
   display: none;
 }
+
+li img {
+
+  margin-left: 10px;
+  position: relative;
+  bottom: 10px;
+}
