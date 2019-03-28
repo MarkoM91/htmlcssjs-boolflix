@@ -109,6 +109,20 @@ function searchTv(me) {
   ajaxTvSeries(contentSeries);
 }
 
+function searchMovieCast(id) {
+
+
+
+  ajaxMovieCast(content);
+}
+
+function searchTvCast(id) {
+
+
+
+  ajaxMovieCast(id)
+}
+
 function ajaxMovie(content) {
 
   var outData = {
@@ -174,8 +188,9 @@ function ajaxMovieCast(id) {
     data: outDataMovieCast,
     method:"GET",
     success: function(data) {
-
+console.log(data);
         var movieCast = data.response;
+        console.log(movieCast);
     },
     error: function(request, state, error) {
 
@@ -228,7 +243,15 @@ function showInfo(me){
     me.hide();
 
     me.siblings(".info").show();
+
+    var film_id = me.attr("data-id");
+    if(!film_id) {
+        return;
+    }
+
+    ajaxMovieCast(film_id);
 }
+
 
 function hideInfo(me){
 
