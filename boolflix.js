@@ -5,7 +5,7 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
     title:"Title: " +  title,
     original_title:"Original Title: " +  originalTitle,
     id: id,
-    cast:"Cast: " +  cast,
+    cast:"Cast: " +  id,
     original_language: language,
     flag:"Language: " + " " +  getFlagImg(language),
     vote_average: vote,
@@ -99,6 +99,16 @@ function searchMovie(me) {
   ajaxMovie(content);
 }
 
+function searchTv(me) {
+
+  var contentSeries = me.val().toLowerCase();
+
+  var div = $("div.film-container");
+  div.remove();
+
+  ajaxTvSeries(contentSeries);
+}
+
 function ajaxMovie(content) {
 
   var outData = {
@@ -124,16 +134,6 @@ function ajaxMovie(content) {
     }
 
   });
-}
-
-function searchTv(me) {
-
-  var contentSeries = me.val().toLowerCase();
-
-  var div = $("div.film-container");
-  div.remove();
-
-  ajaxTvSeries(contentSeries);
 }
 
 function ajaxTvSeries(contentSeries) {
