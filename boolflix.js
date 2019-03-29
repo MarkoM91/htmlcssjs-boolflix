@@ -104,15 +104,14 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 function ajaxMovieCastParser(castMovie) {
-  console.log(castMovie.cast, castMovie.crew);
 
   for (var i = 0; i < castMovie.cast.length; i++) {
-    var resCast = castMovie.cast[i];
-    var cast = resCast.cast;
-    var crew = resCast.crew;
-    addTitle(cast);
-  }
 
+     if (castMovie.cast <= 5) {
+
+       addCast(castMovie.cast);
+     }
+  }
 }
 
 function searchMovie(me) {
