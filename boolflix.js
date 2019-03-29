@@ -237,10 +237,18 @@ function hiddedBox() {
 
 function showInfo(me){
 
-
     me.hide();
 
-    me.siblings(".info").show()
+    me.siblings(".info").show();
+
+    var film_id = me.attr("data-id");
+    console.log(film_id);
+
+    if(!film_id) {
+
+        return;
+    }
+    ajaxMovieCast(film_id)
 }
 
 function hideInfo(me){
@@ -262,15 +270,6 @@ function init() {
 
         searchMovie(me);
         searchTv(me)
-
-        console.log(film_id);
-        var film_id = me.attr("data-id");
-
-        if(!film_id) {
-
-            return;
-        }
-        ajaxMovieCast(film_id)
     }
 
   });
