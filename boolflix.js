@@ -29,7 +29,7 @@ function addCast(cast, filmId) {
 
 
   //container_cast.remove();
-  container_cast.append("<div>"+cast.name+"</div>");
+  container_cast.append("<div>"+cast.name,+"</div>");
   /*var castMembers = {
 
     cast:cast

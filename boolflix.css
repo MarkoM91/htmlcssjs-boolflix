@@ -211,6 +211,13 @@ li[stars = stars] {
 
 .cast-members {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cast-members div {
+
+  padding: 8px;
 }
