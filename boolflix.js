@@ -177,6 +177,9 @@ function searchMovieCast(me) {
 
 function searchTvCast(me) {
 
+  var cast_members = $(".cast-members div");
+  cast_members.remove();
+
   var tv_id = me.parent(".film-container").attr("data-id");
 
   if(!tv_id) {
