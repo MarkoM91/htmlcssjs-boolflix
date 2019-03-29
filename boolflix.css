@@ -54,8 +54,8 @@ span {
 
 .div.img {
 
-  width: 154px;
-  height: 235px;
+  height: 513px;
+  width: 342px;
 }
 
 .div.img  img{
@@ -199,7 +199,7 @@ li[display = none] {
 li[plot = plot] {
 
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 0;
 }
 

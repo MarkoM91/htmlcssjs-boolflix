@@ -77,7 +77,7 @@ function ajaxMovieResultParser(data) {
       var language = res.original_language;
       var vote = res.vote_average;
       var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
-      var plot =
+      var plot = res.overview;
       addTitle(title, originalTitle, filmId, language,  vote, poster, plot);
    }
 
