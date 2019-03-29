@@ -25,7 +25,7 @@ function addCast(cast, filmId) {
   var container_film = $(".film-container[data-id='"+filmId+"']");
   var container_cast = container_film.find(".cast-members");
 
-  container_cast.append("<div>"+cast.name,+"</div>");
+  container_cast.append("<div>"+cast.name+ ",","</div>");
 }
 
 function getStars(vote) {
