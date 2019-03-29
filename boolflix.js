@@ -105,14 +105,14 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 function ajaxMovieCastParser(castMovie) {
-
   do {
 
       for (var i = 0; i < castMovie.cast.length; i++) {
 
-         addCast(castMovie.cast);
+          var cast= castMovie.cast[i];
+          addCast(cast);
       }
-  } while (castMovie.cast <= 5);
+  } while (cast <= 5);
 
 }
 
