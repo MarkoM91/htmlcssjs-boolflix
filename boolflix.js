@@ -1,4 +1,4 @@
-function addTitle(title, originalTitle, id, language,  vote, poster) {
+function addTitle(cast) {
 
   var tempDate = {
 
@@ -15,6 +15,21 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
   var li = compiled(tempDate);
+
+  var ulFilms = $(".films");
+  ulFilms.append(li);
+}
+
+function addCast(cast) {
+
+  var castMembers = {
+
+    cast:cast
+  }
+
+  var template = $("#box-template").html();
+  var compiled = Handlebars.compile(template);
+  var liC = compiled(tempDate);
 
   var ulFilms = $(".films");
   ulFilms.append(li);
@@ -88,6 +103,19 @@ function ajaxTvSeriesResultParser(data) {
   }
 }
 
+function ajaxMovieCastParser(data) {
+
+    var castMovie = data;
+
+    for (var i = 0; i < castMovie.length; i++) {
+      var resCast = castMovie[i];
+      var cast = resCast.cast;
+      var crew = resCast.crew;
+      addTitle(cast);
+  }
+  console.log(resCast.cast);
+}
+
 function searchMovie(me) {
 
   var content = me.val().toLowerCase();
@@ -106,20 +134,6 @@ function searchTv(me) {
   div.remove();
 
   ajaxTvSeries(contentSeries);
-}
-
-function searchMovieCast(id) {
-
-
-
-  ajaxMovieCast(content);
-}
-
-function searchTvCast(id) {
-
-
-
-  ajaxMovieCast(id)
 }
 
 function ajaxMovie(content) {
@@ -189,8 +203,7 @@ function ajaxMovieCast(film_id) {
     method:"GET",
     success: function(data) {
 
-        var movieCast = data;
-        console.log(movieCast);
+            ajaxMovieCastParser(data);
     },
     error: function(request, state, error) {
 
