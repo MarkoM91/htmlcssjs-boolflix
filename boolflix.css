@@ -215,9 +215,10 @@ li[stars = stars] {
   left: 0;
   display: flex;
   flex-wrap: wrap;
+  padding: 8px;
 }
 
 .cast-members div {
 
-  padding: 8px;
+  margin: 3px;
 }
