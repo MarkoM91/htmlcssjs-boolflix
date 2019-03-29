@@ -20,9 +20,13 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
   ulFilms.append(li);
 }
 
-function addCast(cast) {
+function addCast(cast, idFilm) {
 
-  var castMembers = {
+  var container_film = $(".film-container[data-id='"+idFilm+"']");
+  var container_cast = container_film.find(".cast-members");
+  //console.log(cast);
+  container_cast.append("<div>"+cast.name+"</div>");
+  /*var castMembers = {
 
     cast:cast
   }
@@ -33,7 +37,7 @@ function addCast(cast) {
 
   var ulFilms = $(".films");
   var cast_members = $(".cast_members");
-  ulFilms.append(liC);
+  ulFilms.append(liC);*/
 }
 
 function getStars(vote) {
@@ -105,15 +109,13 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 function ajaxMovieCastParser(castMovie) {
-  do {
-
-      for (var i = 0; i < castMovie.cast.length; i++) {
-
-          var cast= castMovie.cast[i];
-          addCast(cast);
-      }
-  } while (cast <= 5);
-
+    for (var i = 0; i < castMovie.cast.length; i++) {
+        if (i>= 5 ) {
+          break;
+        }
+        var cast= castMovie.cast[i];
+        addCast(cast, castMovie.id);
+    }
 }
 
 function searchMovie(me) {
@@ -253,8 +255,6 @@ function showInfo(me){
     me.hide();
 
     me.siblings(".info").show();
-
-
 
     var film_id = me.parent(".film-container").attr("data-id");
 
