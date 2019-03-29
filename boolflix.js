@@ -32,7 +32,8 @@ function addCast(cast) {
   var liC = compiled(castMembers);
 
   var ulFilms = $(".films");
-  ulFilms.append(li);
+  var cast_members = $(".cast_members");
+  ulFilms.append(liC);
 }
 
 function getStars(vote) {
@@ -111,7 +112,7 @@ function ajaxMovieCastParser(castMovie) {
 
          addCast(castMovie.cast);
       }
-  } while (true);
+  } while (castMovie.cast <= 5);
 
 }
 
