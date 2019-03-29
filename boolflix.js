@@ -20,7 +20,7 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
   ulFilms.append(li);
 }
 
-function addCast(cast, Id) {
+function addCast(cast, filmId) {
 
 
   var container_film = $(".film-container[data-id='"+filmId+"']");
@@ -162,15 +162,18 @@ function searchTv(me) {
 
 function searchMovieCast(me) {
 
+  var cast_members = $(".cast-members div");
+  cast_members.remove();
+
   var film_id = me.parent(".film-container").attr("data-id");
 
-  if(!film_id) {
+    if(!film_id) {
 
-      return;
+        return;
+    }
+
+    ajaxMovieCast(film_id)
   }
-
-  ajaxMovieCast(film_id)
-}
 
 function searchTvCast(me) {
 
