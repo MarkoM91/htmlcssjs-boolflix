@@ -1,4 +1,4 @@
-function addTitle(title, originalTitle, id, language,  vote, poster) {
+function addTitle(title, originalTitle, id, language,  vote, poster, plot) {
 
   var tempDate = {
 
@@ -9,7 +9,8 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
     flag:"Language: " + " " +  getFlagImg(language),
     vote_average: vote,
     stars:"Vote: " + " " + getStars(vote),              //  aggiungere stars in tempDate altrimenti ritorna  undefined;
-    img: poster
+    img: poster,
+    plot: "Plot: " + " " + plot
   }
 
   var template = $("#box-template").html();
@@ -76,7 +77,8 @@ function ajaxMovieResultParser(data) {
       var language = res.original_language;
       var vote = res.vote_average;
       var poster= 'https://image.tmdb.org/t/p/w342' + res.poster_path;
-      addTitle(title, originalTitle, filmId, language,  vote, poster);
+      var plot =
+      addTitle(title, originalTitle, filmId, language,  vote, poster, plot);
    }
 
 }
@@ -92,7 +94,8 @@ function ajaxTvSeriesResultParser(data) {
       var languageTv = resTv.original_language;
       var voteTv = resTv.vote_average;
       var posterTv = 'https://image.tmdb.org/t/p/w342' + resTv.poster_path;
-      addTitle(titleTv, originalTitleTv, tvId, languageTv,  voteTv, posterTv);
+      var plotTv = resTv.overview;
+      addTitle(titleTv, originalTitleTv, tvId, languageTv,  voteTv, posterTv, plotTv);
   }
 }
 
@@ -178,7 +181,7 @@ function ajaxMovie(content) {
 
   var outData = {
     api_key:"8b0cf308301e17a98d830746296be82f",
-    language:"it-IT",
+    language:"en-EN",
     query: content
   }
 
@@ -205,7 +208,7 @@ function ajaxTvSeries(contentSeries) {
 
     var outDataSeries = {
     api_key:"e99307154c6dfb0b4750f6603256716d",
-    language:"it-IT",
+    language:"en-EN",
     query: contentSeries
   }
 

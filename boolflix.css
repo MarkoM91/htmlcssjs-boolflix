@@ -196,6 +196,13 @@ li[display = none] {
   display: none;
 }
 
+li[plot = plot] {
+
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
+
 li img {
 
   margin-left: 10px;
@@ -211,7 +218,7 @@ li[stars = stars] {
 
 .cast-members {
   position: absolute;
-  top: 30%;
+  top: 27%;
   left: 0;
   display: flex;
   flex-wrap: wrap;
