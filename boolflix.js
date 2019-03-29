@@ -5,7 +5,6 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
     title:"Title: " +  title,
     original_title:"Original Title: " +  originalTitle,
     id: id,
-    cast:"Cast: " +  id,
     original_language: language,
     flag:"Language: " + " " +  getFlagImg(language),
     vote_average: vote,
@@ -188,9 +187,8 @@ function ajaxMovieCast(id) {
     data: outDataMovieCast,
     method:"GET",
     success: function(data) {
-console.log(data);
+         console.log(movieCast);
         var movieCast = data.response;
-        console.log(movieCast);
     },
     error: function(request, state, error) {
 
@@ -242,16 +240,8 @@ function showInfo(me){
 
     me.hide();
 
-    me.siblings(".info").show();
-
-    var film_id = me.attr("data-id");
-    if(!film_id) {
-        return;
-    }
-
-    ajaxMovieCast(film_id);
+    me.siblings(".info").show()
 }
-
 
 function hideInfo(me){
 
@@ -272,6 +262,15 @@ function init() {
 
         searchMovie(me);
         searchTv(me)
+
+        console.log(film_id);
+        var film_id = me.attr("data-id");
+
+        if(!film_id) {
+
+            return;
+        }
+        ajaxMovieCast(film_id)
     }
 
   });

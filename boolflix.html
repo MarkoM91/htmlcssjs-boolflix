@@ -6,11 +6,11 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script id="box-template" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8" type="text/javascript">
-    <div class="film-container">
+    <div class="film-container" data-id="{{id}}">
        <div class="img">
            <img src="{{img}}" alt="">
        </div>
-       <div class="info" data-id="{{id}}">
+       <div class="info">
            <li>{{title}}</li>
            <li>{{original_title}}</li>
            <li>{{cast}}</li>

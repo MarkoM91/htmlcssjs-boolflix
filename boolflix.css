@@ -16,9 +16,7 @@ body {
 header {
 
   height: 100px;
-
   background: black;
-
 
   display: flex;
   justify-content: space-between;
@@ -54,8 +52,6 @@ span {
   margin-left: 150px;
 }
 
-
-
 .div.img {
 
   width: 154px;
@@ -86,12 +82,13 @@ span {
 
   width: 150px;
   height: 30px;
+
   background: black;
   border: 1px solid black;
   color: white;
+
   text-align: center;
   padding-right: 10px;
-
 }
 
 .fa-bell {
@@ -110,8 +107,10 @@ span {
 
   height: 10px;
   width:  10px;
+
   border-radius: 50%;
   background: red;
+
   position: absolute;
   top: 0;
   right:0;
@@ -121,6 +120,7 @@ span {
 
   color: white;
   font-size: 8px;
+
   position: absolute;
   top: 0;
   right: 3px;
@@ -150,15 +150,16 @@ i {
   height: 16px;
 }
 
-
 div.info {
 
   height: 513px;
   width: 342px;
+
   background: black;
   color: white;
   border: 1px solid white;
   display: none;
+
   position: absolute;
   top: 0;
   left:0;
@@ -183,7 +184,6 @@ div.info.active {
 .film-container {
 
   display: block;
-  border: 1px solid black;
   margin: 50px 10px 10px 5px;
 
   height: 513px;
