@@ -29,7 +29,7 @@ function addCast(cast) {
 
   var template = $("#box-template").html();
   var compiled = Handlebars.compile(template);
-  var liC = compiled(tempDate);
+  var liC = compiled(castMembers);
 
   var ulFilms = $(".films");
   ulFilms.append(li);
@@ -105,13 +105,14 @@ function ajaxTvSeriesResultParser(data) {
 
 function ajaxMovieCastParser(castMovie) {
 
-  for (var i = 0; i < castMovie.cast.length; i++) {
+  do {
 
-     if (castMovie.cast <= 5) {
+      for (var i = 0; i < castMovie.cast.length; i++) {
 
-       addCast(castMovie.cast);
-     }
-  }
+         addCast(castMovie.cast);
+      }
+  } while (true);
+
 }
 
 function searchMovie(me) {
