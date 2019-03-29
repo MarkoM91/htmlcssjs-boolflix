@@ -175,7 +175,8 @@ function ajaxTvSeries(contentSeries) {
   });
 }
 
-function ajaxMovieCast(id) {
+function ajaxMovieCast(film_id) {
+
 
     var outDataMovieCast = {
 
@@ -183,12 +184,13 @@ function ajaxMovieCast(id) {
     }
 
   $.ajax({
-    url:"https://api.themoviedb.org/3/movie/" + id + "/credits",
+    url:"https://api.themoviedb.org/3/movie/" + film_id + "/credits",
     data: outDataMovieCast,
     method:"GET",
     success: function(data) {
-         console.log(movieCast);
-        var movieCast = data.response;
+
+        var movieCast = data;
+        console.log(movieCast);
     },
     error: function(request, state, error) {
 
@@ -241,8 +243,10 @@ function showInfo(me){
 
     me.siblings(".info").show();
 
-    var film_id = me.attr("data-id");
-    console.log(film_id);
+
+
+    var film_id = me.parent(".film-container").attr("data-id");
+
 
     if(!film_id) {
 
@@ -283,7 +287,7 @@ var img = $(".img");
   });
 
 var info = $(".info");
-  $(document).on("mouseleave" , ".info", function() {
+  $(document).on("mouseleave" , ".img", function() {
 
         var me = $(this);
         hideInfo(me);
