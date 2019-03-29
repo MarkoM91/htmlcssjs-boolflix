@@ -103,18 +103,16 @@ function ajaxTvSeriesResultParser(data) {
   }
 }
 
-function ajaxMovieCastParser(data) {
+function ajaxMovieCastParser(castMovie) {
+  console.log(castMovie.cast, castMovie.crew);
 
-    var castMovie = data;
-    console.log(castMovie);
-//
-//    for (var i = 0; i < castMovie.length; i++) {
-//      var resCast = castMovie[i];
-//      var cast = resCast.cast;
-//      var crew = resCast.crew;
-//      addTitle(cast);
-//  }
-//  console.log(resCast.cast);
+  for (var i = 0; i < castMovie.cast.length; i++) {
+    var resCast = castMovie.cast[i];
+    var cast = resCast.cast;
+    var crew = resCast.crew;
+    addTitle(cast);
+  }
+
 }
 
 function searchMovie(me) {
@@ -202,10 +200,8 @@ function ajaxMovieCast(film_id) {
     url:"https://api.themoviedb.org/3/movie/" + film_id + "/credits",
     data: outDataMovieCast,
     method:"GET",
-    success: function(data) {
+    success: ajaxMovieCastParser,
 
-            ajaxMovieCastParser(data);
-    },
     error: function(request, state, error) {
 
       console.log("request", request);
