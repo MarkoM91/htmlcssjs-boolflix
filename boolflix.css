@@ -141,6 +141,8 @@ i {
   display: block;
   width: 16px;
   height: 16px;
+
+  color: rgb(255, 191, 0);
 }
 
 .far.fa-star {

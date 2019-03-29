@@ -114,17 +114,17 @@ function ajaxMovieCastParser(castMovie) {
 }
 
 function ajaxTvCastParser(castTv) {
-
-    for (var i = 0; i < castTv.cast.length; i++) {
-
-        if ( i < 5 ) {
-
-          var castTv= castTv.cast[i];
-          addCast(castTv, castTv.id);
-        }
-
-    }
-
+console.log(castTv);
+//    for (var i = 0; i < castTv.cast.length; i++) {
+//
+//        if ( i < 5 ) {
+//
+//          var castTv= castTv.cast[i];
+//          addCast(castTv, castTv.id);
+//        }
+//
+//    }
+//
 }
 
 function searchMovie(me) {
@@ -274,6 +274,7 @@ function ajaxTvCast(id) {
     }
 
   });
+
 }
 
 function hiddedBox() {
