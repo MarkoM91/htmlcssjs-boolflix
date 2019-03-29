@@ -185,6 +185,7 @@ div.info.active {
 
   display: block;
   margin: 50px 10px 10px 5px;
+  border: 1px solid black;
 
   height: 513px;
   width: 342px;
