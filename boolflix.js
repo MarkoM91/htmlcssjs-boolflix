@@ -22,26 +22,10 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
 
 function addCast(cast, filmId) {
 
-
   var container_film = $(".film-container[data-id='"+filmId+"']");
   var container_cast = container_film.find(".cast-members");
-  //console.log(cast);
 
-
-  //container_cast.remove();
   container_cast.append("<div>"+cast.name,+"</div>");
-  /*var castMembers = {
-
-    cast:cast
-  }
-
-  var template = $("#box-template").html();
-  var compiled = Handlebars.compile(template);
-  var liC = compiled(castMembers);
-
-  var ulFilms = $(".films");
-  var cast_members = $(".cast_members");
-  ulFilms.append(liC);*/
 }
 
 function getStars(vote) {
