@@ -1,4 +1,4 @@
-function addTitle(cast) {
+function addTitle(title, originalTitle, id, language,  vote, poster) {
 
   var tempDate = {
 
@@ -106,14 +106,15 @@ function ajaxTvSeriesResultParser(data) {
 function ajaxMovieCastParser(data) {
 
     var castMovie = data;
-
-    for (var i = 0; i < castMovie.length; i++) {
-      var resCast = castMovie[i];
-      var cast = resCast.cast;
-      var crew = resCast.crew;
-      addTitle(cast);
-  }
-  console.log(resCast.cast);
+    console.log(castMovie);
+//
+//    for (var i = 0; i < castMovie.length; i++) {
+//      var resCast = castMovie[i];
+//      var cast = resCast.cast;
+//      var crew = resCast.crew;
+//      addTitle(cast);
+//  }
+//  console.log(resCast.cast);
 }
 
 function searchMovie(me) {
