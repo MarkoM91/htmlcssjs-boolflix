@@ -20,11 +20,15 @@ function addTitle(title, originalTitle, id, language,  vote, poster) {
   ulFilms.append(li);
 }
 
-function addCast(cast, idFilm) {
+function addCast(cast, Id) {
 
-  var container_film = $(".film-container[data-id='"+idFilm+"']");
+
+  var container_film = $(".film-container[data-id='"+filmId+"']");
   var container_cast = container_film.find(".cast-members");
   //console.log(cast);
+
+
+  //container_cast.remove();
   container_cast.append("<div>"+cast.name+"</div>");
   /*var castMembers = {
 
@@ -109,13 +113,31 @@ function ajaxTvSeriesResultParser(data) {
 }
 
 function ajaxMovieCastParser(castMovie) {
+
     for (var i = 0; i < castMovie.cast.length; i++) {
-        if (i>= 5 ) {
-          break;
+
+        if ( i < 5 ) {
+
+          var cast= castMovie.cast[i];
+          addCast(cast, castMovie.id);
         }
-        var cast= castMovie.cast[i];
-        addCast(cast, castMovie.id);
+
     }
+
+}
+
+function ajaxTvCastParser(castTv) {
+
+    for (var i = 0; i < castTv.cast.length; i++) {
+
+        if ( i < 5 ) {
+
+          var castTv= castTv.cast[i];
+          addCast(castTv, castTv.id);
+        }
+
+    }
+
 }
 
 function searchMovie(me) {
@@ -136,6 +158,30 @@ function searchTv(me) {
   div.remove();
 
   ajaxTvSeries(contentSeries);
+}
+
+function searchMovieCast(me) {
+
+  var film_id = me.parent(".film-container").attr("data-id");
+
+  if(!film_id) {
+
+      return;
+  }
+
+  ajaxMovieCast(film_id)
+}
+
+function searchTvCast(me) {
+
+  var tv_id = me.parent(".film-container").attr("data-id");
+
+  if(!tv_id) {
+
+      return;
+  }
+
+  ajaxTvCast(tv_id)
 }
 
 function ajaxMovie(content) {
@@ -193,7 +239,6 @@ function ajaxTvSeries(contentSeries) {
 
 function ajaxMovieCast(film_id) {
 
-
     var outDataMovieCast = {
 
     api_key:"8b0cf308301e17a98d830746296be82f"
@@ -226,11 +271,8 @@ function ajaxTvCast(id) {
     url:"https://api.themoviedb.org/3/movie/" + id +"/credits",
     data: outDataTvCast,
     method:"GET",
-    success: function(data) {
+    success: ajaxTvCastParser,
 
-         var tvCast = data.response;
-
-    },
     error: function(request, state, error) {
 
       console.log("request", request);
@@ -256,14 +298,9 @@ function showInfo(me){
 
     me.siblings(".info").show();
 
-    var film_id = me.parent(".film-container").attr("data-id");
+    searchMovieCast(me);
 
-
-    if(!film_id) {
-
-        return;
-    }
-    ajaxMovieCast(film_id)
+    searchTvCast(me);
 }
 
 function hideInfo(me){

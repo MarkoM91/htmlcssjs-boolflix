@@ -208,3 +208,9 @@ li[stars = stars] {
   position: relative;
   bottom: 15px;
 }
+
+.cast-members {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
