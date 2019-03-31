@@ -80,7 +80,6 @@ function ajaxMovieResultParser(data) {
       var plot = res.overview;
       addTitle(title, originalTitle, filmId, language,  vote, poster, plot);
    }
-
 }
 
 function ajaxTvSeriesResultParser(data) {
@@ -108,9 +107,7 @@ function ajaxMovieCastParser(castMovie) {
           var cast= castMovie.cast[i];
           addCast(cast, castMovie.id);
         }
-
     }
-
 }
 
 function ajaxTvCastParser(castTv) {
@@ -122,9 +119,7 @@ function ajaxTvCastParser(castTv) {
           var castTv= castTv.cast[i];
           addCast(castTv, castTv.id);
         }
-
     }
-
 }
 
 function searchMovie(me) {
@@ -160,7 +155,7 @@ function searchMovieCast(me) {
     }
 
     ajaxMovieCast(film_id)
-  }
+}
 
 function searchTvCast(me) {
 
