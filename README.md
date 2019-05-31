@@ -1,6 +1,6 @@
 # htmlcssjs-boolflix
 
-htmlcssjs-boolflix is a A Netflix Front-End interface with API REST DB 
+htmlcssjs-boolflix is a A Netflix Front-End interface clone with API REST DB 
 
 ## Technologies Used:
 
